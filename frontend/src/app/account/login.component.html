@@ -1,0 +1,64 @@
+<div class="contents">
+  <h4 class="title">Login</h4>
+  <div>
+    <form [formGroup]="form" (ngSubmit)="onSubmit()">
+      <div class="field">
+        <label class="label" for="username">Username</label>
+        <div class="control has-icons-left">
+          <input
+            type="text"
+            formControlName="username"
+            autocomplete="username"
+            class="input"
+            [ngClass]="{ 'is-danger': submitted && f.username.errors }"
+          />
+          <span class="icon is-small is-left">
+            <fa-icon [icon]="faUser"></fa-icon>
+          </span>
+        </div>
+        <div *ngIf="submitted && f.username.errors">
+          <p *ngIf="f.username.errors.required" class="help is-danger">
+            Username is required
+          </p>
+        </div>
+      </div>
+      <div class="field">
+        <label class="label" for="password">Password</label>
+        <div class="control has-icons-left">
+          <input
+            type="password"
+            formControlName="password"
+            autocomplete="current-password"
+            class="input"
+            [ngClass]="{ 'is-danger': submitted && f.password.errors }"
+          />
+          <span class="icon is-small is-left">
+            <fa-icon [icon]="faKey"></fa-icon>
+          </span>
+        </div>
+        <div *ngIf="submitted && f.password.errors">
+          <p *ngIf="f.password.errors.required" class="help is-danger">
+            Password is required
+          </p>
+        </div>
+      </div>
+      <app-alert *ngIf="error" [error]="error"></app-alert>
+      <div class="field is-grouped">
+        <div class="control">
+          <button [disabled]="loading" class="button is-link">
+            <span
+              *ngIf="loading"
+              class="spinner-border spinner-border-sm mr-1"
+            ></span>
+            Login
+          </button>
+        </div>
+        <div class="control">
+          <a routerLink="../register" class="button is-link is-light"
+            >Register</a
+          >
+        </div>
+      </div>
+    </form>
+  </div>
+</div>

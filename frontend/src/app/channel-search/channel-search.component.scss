@@ -1,0 +1,24 @@
+@import "../app.component.scss";
+
+ul {
+  max-width: $content-max-width;
+  list-style: none;
+}
+
+.control {
+  width: 100%;
+  max-width: $content-max-width;
+}
+
+.search-results {
+  background-color: rgb(75, 75, 75);
+  border-radius: 15px;
+}
+
+#search-box:not(.has-search-query)::-webkit-search-cancel-button {
+  -webkit-appearance: none;
+}
+
+#search-box.has-search-query::-webkit-search-cancel-button {
+  position: relative;
+}
